@@ -16,56 +16,88 @@
       /* Corpo da página */
       body {
         font-family: "Arial", sans-serif;
-        background-color: #f8f8f8;
+        background-color: #f9f9f9;
         color: #333;
         padding: 20px;
+        overflow-x: hidden;
       }
 
       /* Título */
       h1,
       h2 {
         text-align: center;
-        color: #004b87; /* Azul claro */
-        font-size: 2.5rem;
+        color: #ff0000; /* Vermelho Youtube */
+        font-size: 3rem;
         margin-bottom: 20px;
+        letter-spacing: 2px;
+        animation: bounceIn 1s ease;
+      }
+
+      /* Animação do título */
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
 
       /* Input, buttons, e campos de formulário */
       input[type="text"],
       input[type="number"],
       button {
-        padding: 10px 15px;
-        font-size: 1rem;
-        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-radius: 5px;
         border: 1px solid #ccc;
         width: 100%;
         margin-bottom: 15px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        animation: slideIn 0.8s ease-in-out;
       }
 
-      input[type="text"],
-      input[type="number"] {
-        background-color: #fff;
+      /* Animação dos inputs */
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
 
       input[type="text"]:focus,
       input[type="number"]:focus {
         outline: none;
-        border-color: #004b87;
-        box-shadow: 0 0 8px rgba(0, 75, 135, 0.4);
+        border-color: #ff0000; /* Cor vermelha como no YouTube */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
       }
 
       button {
-        background-color: #004b87;
+        background-color: #ff0000; /* Cor vermelha do YouTube */
         color: white;
         cursor: pointer;
         border: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
       }
 
       button:hover {
-        background-color: #003a63; /* Cor mais escura no hover */
-        transform: scale(1.05); /* Efeito de zoom */
+        background-color: #c70000;
+        transform: scale(1.1); /* Efeito de zoom */
       }
 
       button:active {
@@ -77,6 +109,16 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 30px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
       th,
@@ -84,12 +126,13 @@
         padding: 12px;
         text-align: center;
         border: 1px solid #ddd;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
 
       th {
-        background-color: #004b87;
+        background-color: #ff0000;
         color: white;
+        font-size: 1.2rem;
       }
 
       td {
@@ -98,22 +141,14 @@
       }
 
       tr:nth-child(even) {
-        background-color: #f4f4f4;
+        background-color: #f2f2f2;
       }
 
       tr:hover {
         background-color: #e2e2e2;
-      }
-
-      /* Estilização da lista de produtos */
-      #produtosList {
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      #produtosList p {
-        color: #777;
-        font-size: 1.2rem;
+        cursor: pointer;
+        transform: scale(1.02); /* Efeito de zoom */
+        transition: all 0.3s ease;
       }
 
       /* Estilizando os botões de deletar */
@@ -124,23 +159,24 @@
         padding: 6px 12px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
       .deletar:hover {
         background-color: #c0392b; /* Cor mais escura ao passar o mouse */
+        transform: scale(1.1);
       }
 
       .deletar:active {
-        transform: scale(0.98); /* Efeito de clique */
+        transform: scale(0.9); /* Efeito de clique */
       }
 
       /* Botões de ação */
       #carregarListaBtn {
-        background-color: #f39c12;
+        background-color: #ffd700;
         color: white;
         border: none;
-        padding: 10px 20px;
+        padding: 12px 20px;
         font-size: 1.1rem;
         border-radius: 8px;
         margin-top: 20px;
@@ -149,7 +185,8 @@
       }
 
       #carregarListaBtn:hover {
-        background-color: #e67e22;
+        background-color: #f39c12;
+        transform: scale(1.05);
       }
 
       #carregarListaBtn:active {
@@ -195,7 +232,7 @@
       placeholder="Digite a quantidade disponível"
     />
     <br />
-    <label for="">Saldo Minimo:</label>
+    <label for="">Saldo Mínimo:</label>
     <input type="number" id="saldoMinimo" placeholder="Digite o saldo mínimo" />
     <br />
     <button id="saveBtn">Salvar Produto</button>

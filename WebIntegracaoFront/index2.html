@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/script.js" defer></script>
+    <title>Cadastrar Produto</title>
+    <style>
+      /* Resetando margens e padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Corpo da página */
+      body {
+        font-family: "Courier New", Courier, monospace;
+        background-color: #1b1b1b;
+        color: #ddd;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-x: hidden;
+      }
+
+      /* Header Falso */
+      header {
+        background-color: #333;
+        padding: 20px;
+        text-align: center;
+        color: #f44336; /* Vermelho assustador */
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        animation: flicker 2s infinite alternate;
+      }
+
+      /* Efeito de flicker para o header */
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Título */
+      h1,
+      h2 {
+        text-align: center;
+        color: #f44336; /* Vermelho como destaque */
+        font-size: 3rem;
+        letter-spacing: 2px;
+        margin-top: 30px;
+        animation: flickerText 2s ease-in-out infinite alternate;
+      }
+
+      /* Animação de flicker no título */
+      @keyframes flickerText {
+        0% {
+          text-shadow: 0 0 10px rgba(244, 67, 54, 0.8),
+            0 0 20px rgba(244, 67, 54, 0.6);
+        }
+        50% {
+          text-shadow: 0 0 30px rgba(244, 67, 54, 0.4),
+            0 0 50px rgba(244, 67, 54, 0.3);
+        }
+        100% {
+          text-shadow: 0 0 10px rgba(244, 67, 54, 0.8),
+            0 0 20px rgba(244, 67, 54, 0.6);
+        }
+      }
+
+      /* Inputs e botões */
+      input[type="text"],
+      input[type="number"],
+      button {
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+        margin-bottom: 15px;
+        background-color: #333;
+        color: #ddd;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+        letter-spacing: 1px;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        outline: none;
+        border: 2px solid #f44336;
+        background-color: #444;
+        box-shadow: 0 0 10px rgba(244, 67, 54, 0.8);
+        transform: scale(1.05);
+      }
+
+      button {
+        background-color: #f44336;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 3px 15px rgba(244, 67, 54, 0.5);
+        animation: pulse 1.5s infinite;
+      }
+
+      button:hover {
+        background-color: #b71c1c;
+        transform: scale(1.1);
+      }
+
+      button:active {
+        transform: scale(1);
+      }
+
+      /* Efeito de pulsação para o botão */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Tabela */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+        color: #ddd;
+        animation: fadeIn 2s ease-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #444;
+        font-size: 1.1rem;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      th {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 1.2rem;
+      }
+
+      td {
+        background-color: #222;
+        color: #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: #333;
+      }
+
+      tr:hover {
+        background-color: #444;
+        transform: scale(1.02);
+        cursor: pointer;
+        animation: shake 0.3s ease-out;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Deletar */
+      .deletar {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .deletar:hover {
+        background-color: #c0392b;
+        transform: scale(1.1);
+      }
+
+      .deletar:active {
+        transform: scale(0.95);
+      }
+
+      /* Footer Falso */
+      footer {
+        background-color: #333;
+        padding: 20px;
+        text-align: center;
+        color: #f44336;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.8);
+        position: relative;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        h1,
+        h2 {
+          font-size: 2rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        button,
+        #carregarListaBtn {
+          width: 100%;
+        }
+
+        table {
+          font-size: 0.9rem;
+        }
+
+        .deletar {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Portal das Sombras</h1>
+    </header>
+
+    <main>
+      <h1>Cadastrar Produto</h1>
+      <label for="">Nome:</label>
+      <input type="text" id="nome" placeholder="Digite o nome do produto" />
+      <br />
+      <label for="">Valor:</label>
+      <input type="number" id="valor" placeholder="Digite o valor do produto" />
+      <br />
+      <label for="">Saldo:</label>
+      <input
+        type="number"
+        id="saldo"
+        placeholder="Digite a quantidade disponível"
+      />
+      <br />
+      <label for="">Saldo Mínimo:</label>
+      <input
+        type="number"
+        id="saldoMinimo"
+        placeholder="Digite o saldo mínimo"
+      />
+      <br />
+      <button id="saveBtn">Salvar Produto</button>
+
+      <h2>Lista de Produtos</h2>
+      <button id="carregarListaBtn">Carregar Lista de Produtos</button>
+      <div id="produtosList"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Portal das Sombras - Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
