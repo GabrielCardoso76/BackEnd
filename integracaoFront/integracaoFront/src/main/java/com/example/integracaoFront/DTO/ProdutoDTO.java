@@ -1,5 +1,7 @@
 package com.example.integracaoFront.DTO;
 
+import com.example.integracaoFront.Entity.Produto;
+
 public class ProdutoDTO {
 
     private Long id;
@@ -59,5 +61,26 @@ public class ProdutoDTO {
 
     public void setSaldoMinimo(int saldoMinimo) {
         this.saldoMinimo = saldoMinimo;
+    }
+    public Produto toProduto(){
+        return new Produto(
+                this.id,
+                this.nome,
+                this.valor,
+                this.saldo,
+                this.saldoMinimo
+        );
+    }
+
+    // converte Produto em ProdutoDTO
+    // Conversão necessária porque o usuário não tenha contato com a Entidade do banco de dados, assim matemos a segurança do sistema.
+    public ProdutoDTO fromProduto(Produto produto){
+        return new ProdutoDTO(
+                produto.getIdProduto(),
+                produto.getNome(),
+                produto.getValor(),
+                produto.getSaldo(),
+                produto.getSaldoMinimo()
+        );
     }
 }

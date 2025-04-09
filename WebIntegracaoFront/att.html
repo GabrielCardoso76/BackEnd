@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/att.js" defer></script> <!-- Referência ao novo arquivo JS -->
+    <title>Atualizar Produto</title>
+  </head>
+  <body>
+    <h1>Buscar um Produto</h1>
+    <label for="id">ID do Produto:</label>
+    <input type="text" id="id" placeholder="Digite o ID do produto" />
+    <button id="buscarBtn">Buscar Produto</button>
+    
+    <h1>Atualizar Produto</h1>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite o nome do produto" />
+    <br/>
+
+    <label for="valor">Valor:</label>
+    <input type="number" id="valor" placeholder="Digite o valor do produto" />
+    <br/>
+
+    <label for="saldo">Saldo:</label>
+    <input type="number" id="saldo" placeholder="Digite a quantidade disponível" />
+    <br/>
+
+    <label for="saldoMinimo">Saldo Minimo:</label>
+    <input type="number" id="saldoMinimo" placeholder="Digite o saldo mínimo" />
+    <br/>
+    
+    <button id="saveBtn">Atualizar/Salvar Produto</button>
+    <a href="index0.html"><button>Pagina de Cadastrar</button></a>
+    <br/>
+
+    <div id="produtoInfo"></div> <!-- Para exibir as informações do produto encontrado -->
+  </body>
+</html>
