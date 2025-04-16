@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="livro.html">Livros</a>
+            <a href="cliente.html">Clientes</a>
+            <a href="emprestimo.html">Empréstimos</a>
+        </nav>
+    </header>
+
+    <!-- Formulário de Cadastro/Alteração de Livro -->
+    <section class="form-section">
+        <h2>Cadastro de Livro</h2>
+        <form id="livroForm">
+            <!-- Campo oculto para o ID do livro (só usado para editar) -->
+            <input type="hidden" id="livroId" name="id"> 
+
+            <input type="text" placeholder="Nome do Livro" id="livroNome" required>
+            <input type="text" placeholder="Autor" id="livroAutor" required>
+            <input type="text" placeholder="ISBN" id="livroISBN" required>
+            <input type="text" placeholder="Gênero" id="livroGenero" required>
+            
+            <button type="submit">Cadastrar/Atualizar Livro</button>
+        </form>
+        <div id="livrosList"></div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

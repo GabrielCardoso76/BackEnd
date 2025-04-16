@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual - Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Livros</a>
+        <a href="cliente.html">Clientes</a>
+        <a href="emprestimo.html">Empréstimos</a>
+    </header>
+    <div class="container">
+        <h1>Cadastro e Listagem de Clientes</h1>
+        <section class="form-section">
+            <h2>Cadastrar Cliente</h2>
+            <form id="clienteForm">
+                <input type="text" placeholder="Nome" id="clienteNome" required>
+                <input type="text" placeholder="Sobrenome" id="clienteSobrenome" required>
+                <input type="text" placeholder="CPF" id="clienteCPF" required>
+                <button type="submit">Cadastrar Cliente</button>
+            </form>
+        </section>
+        
+        <section class="list-section">
+            <h2>Clientes Cadastrados</h2>
+            <ul id="clientesList"></ul>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual - Empréstimos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Livros</a>
+        <a href="cliente.html">Clientes</a>
+        <a href="emprestimo.html">Empréstimos</a>
+    </header>
+    <div class="container">
+        <h1>Cadastro e Listagem de Empréstimos</h1>
+        <section class="form-section">
+            <h2>Cadastrar Empréstimo</h2>
+            <form id="emprestimoForm">
+                <input type="date" id="dataInicial" required>
+                <input type="date" id="dataFinal" required>
+                <input type="text" placeholder="CPF do Cliente" id="emprestimoCPF" required>
+                <input type="text" placeholder="ISBNs dos Livros (separados por vírgula)" id="emprestimoISBNs" required>
+                <button type="submit">Cadastrar Emprestimo</button>
+            </form>
+        </section>
+        
+        <section class="list-section">
+            <h2>Empréstimos Cadastrados</h2>
+            <ul id="emprestimosList"></ul>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
